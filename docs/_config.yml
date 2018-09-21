@@ -1,1 +1,6 @@
 theme: jekyll-theme-modernist
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
