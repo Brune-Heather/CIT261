@@ -40,7 +40,7 @@ layout: default
          for (x in family.children) {
             str += family.children[x] + "<br>";
          }
-         document.getElementById("kids").innerText = "Children: <br>" + str;
+         document.getElementById("kids").innerHTML = "Children: <br>" + str.innerHTML;
       }
 
 
