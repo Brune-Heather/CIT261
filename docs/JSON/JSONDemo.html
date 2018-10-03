@@ -25,13 +25,36 @@ layout: default
          ]
       }
 
-      function seeJSON() {
-         document.getElementById("json").innerHTML = family;
+      function stringIT() {
+         var str = JSON.stringify(family);
+         document.getElementById("json").innerHTML = str;
       }
    </script>
    <h1>Family Group JSON</h1>
    <h2>Lehi's Family</h2>
-   <p>Click the button to see the JSON</p>
-   <button onclick="seeJSON()">See JSON</button>
+   <h3>Here is the JSON</h3>
+<pre>{
+         "lastName": "Mormon",
+         "parents": {
+            "mother": {
+               "name": "Sariah",
+               "age": 30
+            },
+            "father": {
+               "name": "Lehi",
+               "age": 40
+            }
+         },
+         "children": [
+            "Nephi", 
+            "Laman", 
+            "Lemuel", 
+            "Sam", 
+            "Jacob", 
+            "Joseph"
+         ]
+      }</pre>   
+   <p>Click the button to stringify the JSON and print it to the screen.</p>
+   <button onclick="stringIT()">See JSON</button>
    <div id="json"></div>
 </body>
