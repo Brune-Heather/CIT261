@@ -31,9 +31,11 @@ layout: default
       }
 
       function JSONit() {
-         var str = JSON.stringify(family);
-         var myJSON = JSON.parse(str, null, 4);
-         document.getElementById("json").innerHTML = myJSON;
+         var str = "";
+         for (x in family) {
+            str += family.children[x] + "<br>";
+         }
+         document.getElementById("kids").innerHTML = str;
       }
    </script>
    <h1>Family Group JSON</h1>
@@ -63,7 +65,7 @@ layout: default
    <p>Click the button to stringify the JSON and print it to the screen.</p>
    <button onclick="stringIT()">See String</button>
    <div id="str"></div>
-   <p>Click the button to parse the string and print the JSON to the screen.</p>
-   <button onclick="JSONit()">See JSON</button>
-   <div id="json"></div>
+   <p>Click the button to loop through the children and print them to the screen.</p>
+   <button onclick="printKids()">See Children</button>
+   <div id="kids"></div>
 </body>
