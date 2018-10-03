@@ -4,27 +4,95 @@ layout: default
 <body>
    <h1>JSON</h1>
    <h2>Parse and Stringify</h2>
-   <h3><b>Valid JSON</b></h3>
-   <ul>
-      <li>is a name value pair</li>
-      <li>it's keys must be strings</li>
-      <pre>
-      <i>For example...</i>
-         { "class":"CS261" }
-      <i>NOT</i>
-         { class: "CS261" }
-      </pre>
-      <li>it's value types must be; string, number, object, array, boolean, or null</li>
-      <li>it's keys and values must be in double quotes, not single</li>
-      <pre>
-      <i>For example...</i>
-         { "class":"CS261" }
-      <i>NOT</i>
-         { 'class': 'CS261' }
-      </pre>
-   </ul>
-   <a href="https://jsonlint.com/">Click here to visit a JSON validator.</a>
+   <div>
+      <h3><b>Valid JSON</b></h3>
+      <ul>
+         <li>is a name value pair</li>
+         <li>it's keys must be strings</li>
+         <pre>
+         <i>For example...</i>
+            { "class":"CS261" }
+         <i>NOT</i>
+            { class: "CS261" }
+         </pre>
+         <li>it's value types must be; string, number, object, array, boolean, or null</li>
+         <li>it's keys and values must be in double quotes, not single</li>
+         <pre>
+         <i>For example...</i>
+            { "class":"CS261" }
+         <i>NOT</i>
+            { 'class': 'CS261' }
+         </pre>
+      </ul>
+      <p>Avoid using functions in JSON.</p>
+      <a href="https://jsonlint.com/">Click here to visit a JSON validator.</a>
+   </div>
 
-   <h3>JSON vs XML</h3>
-   <img src="venn.png">
+   <div>
+      <h3>JSON vs XML</h3>
+      <img src="venn.png">
+   </div>
+   <div>
+      <h3>JSON Objects</h3>
+      <pre>
+         {
+            "student": { "ID":"8675309", "name":"Jenny", "age":"38" }
+         }
+      </pre>
+      <h3>JSON Arrays</h3>
+      <pre>
+         {
+            "students": [ "Jenny", "Tommy", "Tutone" ]
+         }
+      </pre>
+   </div>
+
+   <div>
+      <h3>For the following examples we will use this JSON:</h3>
+      <pre>
+      myJSON = { 
+         "song":"Girls Life You",
+         "artist":"Maroon 5",
+         "billboard":1, 
+         "sameArtist": {
+            "num1":"Moves Like Jagger",
+            "num2":"One More Night".
+            "num3":"Payphone"
+            } 
+         }
+      </pre>
+      <h3>Accessing inside JSON</h3>
+      <pre>
+         var mySong = myJSON.song;
+      <i>or...</i>
+         var mySong = myJSON["song"];
+      </pre>
+      <h3>Looping through JSON</h3>
+      <pre>
+         for (x in myJSON) {
+            var chartTop += x;
+         }
+      <i>or...</i>
+         for (x in myJSON) {
+            var chartTop += myJSON[x];
+         }
+      </pre>
+      <h3>Nested JSON</h3>
+      <pre>
+         var mySong = myJSON.sameArtist.num1;
+      <i>or...</i>
+         var mySong = myJSON.sameArtist["num1"];
+      </pre>
+      <h3>Modifying or Deleting JSON</h3>
+      <pre>
+         myJSON.sameArtist.num1 = "Payphone";
+      <i>or...</i>
+         myJSON.sameArtist["num1"] = "Payphone";
+      </pre>
+      <p>Use <pre>delete</pre> to remove things from JSON</p>
+      <pre>
+         delete myJSON.sameArtist.num3;
+      </pre>
+   </div>
+
 </body>
