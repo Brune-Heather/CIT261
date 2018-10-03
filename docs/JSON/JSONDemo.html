@@ -32,7 +32,7 @@ layout: default
 
       function printParents() {
          var str = "";
-         str += family.parents.mother.name + "<br>" + family.parents.father.name;
+         str += "Parents: <br>" + family.parents.mother.name + "<br>" + family.parents.father.name;
          document.getElementById("parents").innerHTML = str;
       }
 
@@ -40,7 +40,7 @@ layout: default
          for (x in family.children) {
             str += family.children[x] + "<br>";
          }
-         document.getElementById("kids").innerHTML = str;
+         document.getElementById("kids").innerHTML = "Children: <br>" + str;
       }
 
 
@@ -75,9 +75,9 @@ layout: default
 
    <p>Click the button to loop through the parents and print them to the screen.</p>
    <button onclick="printParents()">See Parents</button>
-   <div id="parents"><p><b>Parents:<br></b></p></div>
+   <div id="parents"></div>
 
    <p>Click the button to loop through the children and print them to the screen.</p>
    <button onclick="printKids()">See Children</button>
-   <div id="kids"><p><b>Children:<br></b></p></div>
+   <div id="kids"></div>
 </body>
