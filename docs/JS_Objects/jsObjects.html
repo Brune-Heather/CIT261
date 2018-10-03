@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html>
+<body>
+   <select id="typeChoice">
+      <option selected hidden>Choose an option...</option>
+      <option value="1">Boolean with new</option>
+      <option value="2">Numbers with new</option>
+      <option value="3">Strings with new</option>
+      <option value="4">Dates</option>
+      <option value="5">Math</option>
+      <option value="6">Array</option>
+      <option value="7">Function</option>
+   </select>
+   <button onclick="typeMe()">typeof</button>
+   <div id="demo">
+      
+   </div>
+   <script type="text/javascript">
+      function typeMe() {
+         var myVal = document.getElementById("typeChoice");
+         var selected = myVal.selectedOptions[0].value;
+         switch(selected) {
+            case 1:
+            alert("made it");
+               document.getElementById("demo").innerHTML = typeof new Boolean();
+               break;
+            case 2:
+               document.getElementById("demo").innerHTML = typeof new Number();
+               break;
+            case 3:
+               document.getElementById("demo").innerHTML = typeof new String();
+               break;
+            case 4:
+               document.getElementById("demo").innerHTML = typeof new Date();
+               break;
+            case 5:
+               document.getElementById("demo").innerHTML = typeof new Math();
+               break;
+            case 6:
+               document.getElementById("demo").innerHTML = typeof new Array();
+               break;
+            case 7:
+               document.getElementById("demo").innerHTML = typeof new Function();
+               break;
+         }
+      }
+   </script>
+</body>
+</html>
