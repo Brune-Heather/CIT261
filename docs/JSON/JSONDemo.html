@@ -37,10 +37,13 @@ layout: default
       }
 
       function printKids() {
-         for (x in family.children) {
-            str += family.children[x] + "<br>";
+         // for (x in family.children) {
+         //    str += family.children[x] + "<br>";
+         // }
+         for (var i = 0; i < family.children.length; i++) {
+            str += children[i];
          }
-         document.getElementById("kids").innerHTML = "Children: <br>" + str.innerHTML;
+         document.getElementById("kids").innerHTML = "Children: <br>" + str;
       }
 
 
