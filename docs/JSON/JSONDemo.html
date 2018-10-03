@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<body>
+   <script type="text/javascript">
+      var family = {
+         "lastName": "Mormon",
+         "parents": {
+            "mother": {
+               "name": "Sariah",
+               "age": 30
+            },
+            "father": {
+               "name": "Lehi",
+               "age": 40
+            }
+         },
+         "children": [
+            "Nephi", 
+            "Laman", 
+            "Lemuel", 
+            "Sam", 
+            "Jacob", 
+            "Joseph"
+         ]
+      }
+
+      function seeJSON() {
+         document.getElementById("json").innerHTML = family;
+      }
+   </script>
+   <h1>Family Group JSON</h1>
+   <h2>Lehi's Family</h2>
+   <p>Click the button to see the JSON</p>
+   <button onclick="seeJSON()">See JSON</button>
+   <div id="json"></div>
+</body>
