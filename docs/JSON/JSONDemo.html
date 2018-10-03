@@ -33,9 +33,7 @@ layout: default
       function printKids() {
          var str = "";
          for (x in family) {
-            for (y in children) {
-               str += children[y] + "<br>";
-            }
+            str += family.children[x] + "<br>";
          }
          document.getElementById("kids").innerHTML = str;
       }
