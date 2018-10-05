@@ -30,17 +30,17 @@ layout: default
 
       function stringIT() {
          var str = JSON.stringify(family);
-         document.getElementById("str").innerHTML = str;
+         document.getElementById("str").innerHTML = str + "<br>";
       }
 
       function JSONIT() {
          var str = JSON.parse(famStr);
-         document.getElementById("json").innerHTML = str.lastName;
+         document.getElementById("json").innerHTML = str.lastName + "<br>";
       }
 
       function printParents() {
          var str = "";
-         str += "Parents: <br>" + family.parents.mother.name + "<br>" + family.parents.father.name;
+         str += "Parents: <br>" + family.parents.mother.name + "<br>" + family.parents.father.name + "<br>";
          document.getElementById("parents").innerHTML = str;
       }
 
@@ -49,7 +49,7 @@ layout: default
          for (i = 0; i < family.children.length; i++) {
             str += family.children[i] + "<br>";
          }
-         document.getElementById("kids").innerHTML = "Children: <br>" + str;
+         document.getElementById("kids").innerHTML = "Children: <br>" + str + "<br>";
       }
 
 
