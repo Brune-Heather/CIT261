@@ -35,7 +35,7 @@ layout: default
 
       function JSONIT() {
          var str = JSON.parse(famStr);
-         document.getElementById("json").innerHTML = str;
+         document.getElementById("json").innerHTML = str.lastName;
       }
 
       function printParents() {
@@ -83,7 +83,7 @@ layout: default
 </div>
 
    <button onclick="JSONIT()">See JSON</button>
-   <div id="json"><p>Click the button to stringify the JSON and print it to the screen.</p>
+   <div id="json"><p>Click the button to parse the JSON and print the families last to the screen.</p>
 </div>
 
    <button onclick="printParents()">See Parents</button>
