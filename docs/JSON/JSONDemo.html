@@ -25,9 +25,17 @@ layout: default
          ]
       }
 
+      var famStr = '{"lastName":"Mormon","parents":{"mother":{"name":"Sariah","age":30},"father":{"name":"Lehi","age":40}},"children":["Nephi","Laman","Lemuel","Sam","Jacob","Joseph"]}';
+
+
       function stringIT() {
          var str = JSON.stringify(family);
          document.getElementById("str").innerHTML = str;
+      }
+
+      function JSONIT() {
+         var str = JSON.parse(famStr);
+         document.getElementById("json").innerHTML = str;
       }
 
       function printParents() {
@@ -72,6 +80,10 @@ layout: default
       }</pre>   
    <button onclick="stringIT()">See String</button>
    <div id="str"><p>Click the button to stringify the JSON and print it to the screen.</p>
+</div>
+
+   <button onclick="JSONIT()">See JSON</button>
+   <div id="json"><p>Click the button to stringify the JSON and print it to the screen.</p>
 </div>
 
    <button onclick="printParents()">See Parents</button>
