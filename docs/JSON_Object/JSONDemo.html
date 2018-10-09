@@ -52,9 +52,21 @@ layout: default
          document.getElementById("kids").innerHTML = "Children: <br>" + str + "<br>";
       }
 
+      var author = {
+         firstName: "Heather",
+         lastName : "Brune",
+         fullName : function() {
+            return this.firstName + " " + this.lastName;
+         }
+      };
 
+      function seeAuthor() {
+         var str = author.fullName();
+         document.getElementById("author").innerHTML = str;
+      }
    </script>
-   <h1>Family Group JSON</h1>
+   
+   <h1>Family Group JSON &amp; Object Demo</h1>
    <h2>Lehi's Family</h2>
    <h3>Here is the JSON</h3>
 <pre>{
@@ -80,17 +92,21 @@ layout: default
       }</pre>   
    <button onclick="stringIT()">See String</button>
    <div id="str"><p>Click the button to stringify the JSON and print it to the screen.</p>
-</div>
+   </div>
 
    <button onclick="JSONIT()">See JSON</button>
    <div id="json"><p>Click the button to parse the JSON and print the families last to the screen.</p>
-</div>
+   </div>
 
    <button onclick="printParents()">See Parents</button>
    <div id="parents"><p>Click the button to loop through the parents and print them to the screen.</p>
-</div>
+   </div>
 
    <button onclick="printKids()">See Children</button>
    <div id="kids"><p>Click the button to loop through the children and print them to the screen.</p>
-</div>
+   </div>
+
+   <button onclick="seeAuthor()">See Author</button>
+   <div id="author"><p>Click the button to access this webpage's author from a JavaScript Object.</p>
+   </div>
 </body>
