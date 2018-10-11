@@ -2,12 +2,43 @@
 layout: default
 ---
 <body>
-   <div id="1" class="top" style="height:100px;width:100px;background-color:red;display:inline-block;">
+   <script type="text/javascript">
+      function append() {
+         var redDiv = document.getElementById("1");
+         var newDiv = document.createElement("div");
+         newDiv.style.backgroundColor = "green";
+         redDiv.appendChild(newDiv);
+         newDiv.appendChild(document.createTextNode("This is the child."));
+      }
+
+      function remove() {
+         var yellow = document.getElementById("3");
+         var pink = document.getElementById("4");
+         yellow.removeChild(pink);
+      }
+
+      function change() {
+         var change = document.getElementById("2");
+         change.style.backgroundColor = "purple";
+         change.style.borderRadius = "75px";
+         change.style.outline = "thick solid black";
+
+      }
+   </script>
+   <div>
+      <div id="1" style="height:200px;width:250px;background-color:red;display:inline-block;"></div>
+      <button onclick="append()">Click Here to appendChild</button>
    </div>
-   <div id="2" class="top" style="height:100px;width:100px;background-color:blue;display:inline-block;">
+   <div>
+      <div id="2" style="height:200px;width:250px;background-color:blue;display:inline-block;"></div>
+      <button onclick="change()">Click Here to change the style of this div</button>
    </div>
-   <div id="3" class="bottom" style="height:100px;width:100px;background-color:yellow;display:inline-block;">
+   <div>
+      <div id="3" style="height:200px;width:250px;background-color:yellow;display:inline-block;">
+         <div id="4" class="bottom" style="height:100px;width:125px;background-color:pink;display:inline-block;">
+         </div>
+      </div>
+      <button onclick="remove()">Click Here to removeChild</button>
    </div>
-   <div id="4" class="bottom" style="height:100px;width:100px;background-color:white;display:inline-block;">
-   </div>
+
 </body>
