@@ -24,21 +24,38 @@ layout: default
          change.style.outline = "thick solid black";
 
       }
+      
+      function changeBack() {
+         var change = document.getElementById("2");
+         change.style.backgroundColor = "blue";
+         change.style.borderRadius = "0px";
+         //change.style.outline = "none";
+      }
+
+      function byClass() {
+         var divClass = document.getElementsByClassName("div");
+         for (var i = 0; i < divClass.length; i++) {
+            divClass[i].style.height = "300px";
+            divClass[i].style.width = "350px";
+         }
+      }
+
+
    </script>
    <div>
-      <div id="1" style="height:200px;width:250px;background-color:red;display:inline-block;"></div>
+      <div class="div" id="1" style="height:200px;width:250px;background-color:red;display:inline-block;"></div>
       <button onclick="append()">Click Here to appendChild</button>
    </div>
    <div>
-      <div id="2" style="height:200px;width:250px;background-color:blue;display:inline-block;"></div>
+      <div class="div" id="2" style="height:200px;width:250px;background-color:blue;display:inline-block;" onmousemove="changeBack()"><p>After clicking move your mouse around in here.</p></div>
       <button onclick="change()">Click Here to change the style of this div</button>
    </div>
    <div>
-      <div id="3" style="height:200px;width:250px;background-color:yellow;display:inline-block;">
-         <div id="4" class="bottom" style="height:100px;width:125px;background-color:pink;display:inline-block;">
+      <div class="div" id="3" style="height:200px;width:250px;background-color:yellow;display:inline-block;">
+         <div class="div" id="4" class="bottom" style="height:100px;width:125px;background-color:pink;display:inline-block;">
          </div>
       </div>
       <button onclick="remove()">Click Here to removeChild</button>
    </div>
-
+   <button onclick="byClass()">Click Here to Make CSS changes by class</button>
 </body>
