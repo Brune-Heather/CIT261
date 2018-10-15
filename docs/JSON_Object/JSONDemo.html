@@ -52,13 +52,12 @@ layout: default
          document.getElementById("kids").innerHTML = "Children: <br>" + str + "<br>";
       }
 
-      var author = {
-         firstName: "Heather",
-         lastName : "Brune",
-         fullName : function() {
+      var author = new Object();
+      author.firstName = "Heather";
+      author.lastName = "Brune";
+      author.fullName = function seeAuthor() {
             return this.firstName + " " + this.lastName;
          }
-      };
 
       function seeAuthor() {
          var str = author.fullName();
