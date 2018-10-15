@@ -1,0 +1,59 @@
+<!-- 
+[X] AJAX
+[X] Local Storage
+[X] JavaScript Events
+-->
+---
+layout: default
+---
+
+<h1>Local Weather</h1>
+<p id="nameLabel"></p>
+<input type="text" id="name"  style="display:none" onkeydown="storeName()">
+<p id="greeting"></p>
+<p>Please enter Zip Code: </p>
+<textarea rows="1" cols="10" id="zip"></textarea>
+<br><button id="weather" onclick="getWeather()">See You Local Temperature in Kelvin.</button>
+<div id="results"></div>
+
+<script type="text/javascript">
+
+   //localStorage.clear();
+
+   function storeName() {
+      var name = document.getElementById("name").value;
+      localStorage.setItem("userName", name);
+   }
+
+   function getWeather() {
+      var userZip = document.getElementById("zip").value;
+      var str = "http://api.openweathermap.org/data/2.5/weather?zip=" + userZip + ",us&APPID=1e8acbd94f047f3c824ab1a481643b07";
+      
+      var weatherJSON;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+
+            weatherJSON = JSON.parse(this.responseText);
+            var div = document.getElementById("results");
+            div.innerHTML = "The temperature is " + weatherJSON.main.temp + " degrees Kelvin.";
+
+         }
+      };
+      xhttp.open("GET", str, true);
+      xhttp.send();
+
+   }
+
+   var userName = localStorage.getItem("userName");
+   var g = document.getElementById("greeting");
+   if (userName == null) {
+      var l = document.getElementById("nameLabel");
+      l.innerHTML = "Welcome. Please Enter your name to personalize your greeting. Then hit Enter. Reload to see your greeting."
+      var m = document.getElementById("name");
+      m.style.display = "inline";
+   }
+   else {
+      g.innerHTML = "Welcome, " + userName;
+   }
+</script>
