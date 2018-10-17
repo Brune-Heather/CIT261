@@ -1,15 +1,20 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+   <title>AJAX - Storage - Events</title>
+   <link rel="stylesheet" type="text/css" href="AJAX.css">
+</head>
 <body>
-   <h1>Local Weather</h1>
-   <p id="nameLabel"></p>
-   <input type="text" id="name"  style="display:none" onkeydown="storeName()">
-   <p id="greeting"></p>
-   <p>Please enter Zip Code: </p>
-   <textarea rows="1" cols="10" id="zip"></textarea>
-   <br><button id="weather" onclick="getWeather()">See You Local Temperature in Kelvin.</button>
-   <div id="results"></div>
+   <div class="wrapper">
+      <h1>Local Weather</h1>
+      <p id="nameLabel"></p>
+      <input type="text" id="name"  style="display:none" onkeydown="storeName()">
+      <p id="greeting"></p>
+      <p>Please enter Zip Code: </p>
+      <textarea rows="1" cols="10" id="zip"></textarea>
+      <br><button id="weather" onclick="getWeather()">See Your Local Temperature in Kelvin.</button>
+      <div id="results"></div>
+   </div>
 
    <script type="text/javascript">
 
@@ -22,7 +27,7 @@ layout: default
 
       function getWeather() {
          var userZip = document.getElementById("zip").value;
-         var str = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?zip=" + userZip + ",us&APPID=1e8acbd94f047f3c824ab1a481643b07";
+         var str = "http://api.openweathermap.org/data/2.5/weather?zip=" + userZip + ",us&APPID=1e8acbd94f047f3c824ab1a481643b07";
          
          var weatherJSON;
          var xhttp = new XMLHttpRequest();
