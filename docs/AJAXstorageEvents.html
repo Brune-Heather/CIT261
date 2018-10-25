@@ -8,18 +8,85 @@
    <div class="wrapper">
       <h1>Local Weather</h1>
       <p id="nameLabel"></p>
-      <input type="text" id="name"  style="display:none" onkeydown="storeName()">
-      <p id="greeting"></p>
+<!-- EVENTS : key stroke -->
+      <input type="text" id="name"  style="display:none" onkeydown="storeName()" onfocus="onFocus(this)" onblur="onBlur(this)"><p id="greeting"></p>
       <p>Please enter Zip Code: </p>
-      <textarea rows="1" cols="10" id="zip"></textarea>
-      <br><button id="weather" onclick="getWeather()">See Your Local Temperature in Kelvin.</button>
-      <div id="results"></div>
+      <textarea rows="1" cols="10" id="zip" onfocus="onFocus(this)" onblur="onBlur(this)"></textarea><br>
+<!-- EVENTS : onclick -->
+      <button id="weather" onclick="getWeather()" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">See Your Local Weather Information</button>
+      <div id="results"></div><br>
+      <button id="funButton" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Click For FUN!</button><br><br>
+<!-- NEW LOCAL STORAGE: the button below allows the user to display all local storage -->
+      <p>Click the button below to see all the information currently stored in local storage. You can then click Clear My Local Storage, reload the page, and click See Local Storage again to see that your information has been removed.</p><button onclick="displayLocalStorage()" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">See Local Storage</button>
+<!-- NEW LOCAL STORAGE: the button below allows the user to clear all local storage -->
+      <button onclick="clearLocalStorage()" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Clear My Local Storage</button><p>After clicking the button, reload the page to see that your information is no longer available.</p>
+      <div id="storageList"></div>  
    </div>
 
    <script type="text/javascript">
+// NEW EVENTS AND LOCAL STORAGE
+      document.getElementById("funButton").addEventListener("click", updateClicks);
 
-      //localStorage.clear();
+//NEW MOUSE ACTIONS
+      function mouseOver(from) {
+         from.style.background = "#b2b2ff";
+      }
 
+      function mouseOut(from){
+         from.style.background = "#f0f0f0";
+      }
+
+      function onFocus(from) {
+         from.style.background = "#DDA0DD";
+      }
+
+      function onBlur(from){
+         from.style.background = "white";
+      }
+
+//NEW      
+      var clicks = 0;      
+      function updateClicks() {
+         clicks++;
+         localStorage.setItem("clickCount", clicks);
+      }
+
+//NEW
+      function displayLocalStorage() {
+         var name, zip, clicks = "";
+         if (localStorage.getItem("userName") == null){
+            name = "You do not have a user name stored."
+         }
+         else {
+            name = localStorage.getItem("userName");
+         }
+         if (localStorage.getItem("userZip") == null){
+            zip = "You do not have a zip code stored."
+         }
+         else {
+            zip = localStorage.getItem("userZip");
+         }
+         if (localStorage.getItem("clickCount") == null){
+            clicks = "You have not clicked the just for fun button."
+         }
+         else {
+            clicks = localStorage.getItem("clickCount");
+         }
+         var str = "Your local storage includes:<br>";
+         str += "User name: " + name + "<br>";
+         str += "Zip code: " + zip + "<br>";
+         str += "Number of clicks on this page: " + clicks + "<br>";
+         var list = document.getElementById("storageList");
+         list.innerHTML = str;
+      }
+
+//NEW
+      function clearLocalStorage() {
+         localStorage.clear();
+         clicks = 0;
+      }
+
+// NEW
       function storeName() {
          var name = document.getElementById("name").value;
          localStorage.setItem("userName", name);
@@ -27,22 +94,31 @@
 
       function getWeather() {
          var userZip = document.getElementById("zip").value;
+//NEW LOCAL STORAGE
+         localStorage.setItem("userZip", userZip);
          var str = "http://api.openweathermap.org/data/2.5/weather?zip=" + userZip + ",us&APPID=1e8acbd94f047f3c824ab1a481643b07";
          
          var weatherJSON;
+         var JSONtemp, JSONhum, JSONwind;
          var xhttp = new XMLHttpRequest();
          xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-
+// Updated to include more weather information.
                weatherJSON = JSON.parse(this.responseText);
                var div = document.getElementById("results");
-               div.innerHTML = "The temperature is " + weatherJSON.main.temp + " degrees Kelvin.";
-
+               JSONtemp = weatherJSON.main.temp;
+               JSONhum = weatherJSON.main.humidity;
+               JSONwind = weatherJSON.wind.speed;
+               div.innerHTML = "The temperature is " + JSONtemp + " degrees Kelvin.<br>"
+                            + "The humidity is " + JSONhum + " percent.<br>"
+                            + "The wind is " + JSONwind + " mph.<br>";
             }
          };
          xhttp.open("GET", str, true);
          xhttp.send();
 
+// NEW LOCAL STORAGE : the user's temperature will be added to local storage
+         localStorage.setItem("userTemp", JSONtemp);
       }
 
       var userName = localStorage.getItem("userName");
