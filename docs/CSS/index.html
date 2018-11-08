@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CSS3</title>
+   <link rel="stylesheet" type="text/css" href="css3.css">
+   <script src="css3.js"></script>
+</head>
+<body onload="colorCards()">
+   <div class="wrapper">
+   <div id="inputBox">
+      <label>Input</label>
+         <input placeholder="required" type="text" id="name" onfocus="focusInput(this)" onmousedown="focusInput(this)" onblur="blurInput(this)" autocomplete="off"><br>
+      <label>5 digit input</label>
+         <input placeholder="required" type="tel" maxlength="5" id="zip" onfocus="focusInput(this)" onmousedown="focusInput(this)" onblur="blurInput(this)" autocomplete="off">
+      <button id="weatherButton" onclick="getWeather()">Click to Disapear</button>
+   </div><br><br>
+   </div>
+   <div class="wrapper">
+      <div class="card" id="0"></div>
+      <div class="card" id="1"></div>
+      <div class="card" id="2"></div>
+      <div class="card" id="3"></div>
+      <div class="card" id="4"></div>
+      <div class="card" id="5"></div>
+   </div>
+</body>
+</html>
