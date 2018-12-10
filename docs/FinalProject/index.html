@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>WeatherNow</title>
+   <link rel="stylesheet" type="text/css" href="weather.css">
+   <link href="https://fonts.googleapis.com/css?family=Raleway|Righteous" rel="stylesheet">
+</head>
+<body>
+<!-- background -->
+   <div id="container">   
+      <canvas id="myCanvas"></canvas>
+   </div>
+   <img src="sun.png" id="sun">
+   <img src="cloud.png" class="cloud topClouds leftClouds">
+   <img src="cloud.png" class="cloud topClouds midClouds">
+   <img src="cloud.png" class="cloud topClouds rtClouds">
+   <img src="cloud.png" class="cloud btmClouds leftMid">
+   <img src="cloud.png" class="cloud btmClouds rtMid">
+
+<!-- form -->
+   <div class="wrapper">
+      <h1 id="title">WeatherNow</h1>
+      <div id="inputBox">
+         <label>Name</label>
+         <input placeholder="required" type="text" id="name" onfocus="focusInput(this)" onmousedown="focusInput(this)" onblur="blurInput(this)" autocomplete="off"><br>
+         <label>Zip Code</label>
+         <input placeholder="required" type="tel" maxlength="5" id="zip" onfocus="focusInput(this)" onmousedown="focusInput(this)" onblur="blurInput(this)" autocomplete="off">
+         <button id="weatherButton" onclick="setWeather()">See Weather Now</button>
+      </div><br><br>
+   </div>
+
+<!-- display -->
+   <div id="cardCase">
+      <p id="greet"></p>
+      <div class="card" id="temp"><p>Current Temp:</p><br></div>
+      <div class="card" id="high"><p>Today's High:</p><br></div>
+      <div class="card" id="low"><p>Today's Low:</p><br></div>
+      <div class="card" id="humidity"><p>Humidity:</p><br></div>
+      <br><button id="notMe" onclick="forgetMe()">Not me/Check new location</button>
+   </div>
+
+<!-- scripts -->
+   <script src="background.js"></script>
+   <script src="form.js"></script>
+
+</body>
+</html>

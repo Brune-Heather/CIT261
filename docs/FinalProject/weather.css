@@ -1,0 +1,222 @@
+/* background */
+   #sun {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: -100;
+      animation: spin 75s linear infinite;
+   }
+   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+   .cloud {
+      height: 200px;
+      width: 400px;
+      position: absolute;
+      z-index: -100;
+   }
+
+   .topClouds {
+      top: -50px;
+   }
+   .btmClouds {
+      top: 25px;
+   }
+   .leftClouds {
+      left: 225px;
+      animation-name: leftclouds;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+   }
+   @keyframes leftclouds {
+     0%   {left:225px;}
+     15%  {left:250px;}
+     30%  {left:275px;}
+     45%  {left:300px;}
+     60%  {left:275px;}
+     75%  {left:250px;}
+     100% {left:225px;}
+   }
+   .midClouds {
+      left: 550px;
+      animation-name: midclouds;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+   }
+   @keyframes midclouds {
+     0%   {left:550px;}
+     15%  {left:575px;}
+     30%  {left:600px;}
+     45%  {left:625px;}
+     60%  {left:600px;}
+     75%  {left:575px;}
+     100% {left:550px;}
+   }
+   .rtClouds {
+      left: 900px;
+      animation: rtclouds;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+   }
+   @keyframes rtclouds {
+     0%   {left:900px;}
+     15%  {left:925px;}
+     30%  {left:950px;}
+     45%  {left:975px;}
+     60%  {left:950px;}
+     75%  {left:925px;}
+     100% {left:900px;}
+   }
+   .leftMid {
+      left: 350px;
+      animation-name: leftMid;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+   }
+   @keyframes leftMid {
+     0%   {left:350px;}
+     15%  {left:340px;}
+     30%  {left:330px;}
+     45%  {left:340px;}
+     60%  {left:330px;}
+     75%  {left:340px;}
+     100% {left:350px;}
+   }
+   .rtMid {
+      left: 650px;
+      animation-name: rtMid;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+   }
+   @keyframes rtMid {
+     0%   {left:650px;}
+     15%  {left:640px;}
+     30%  {left:630px;}
+     45%  {left:640px;}
+     60%  {left:630px;}
+     75%  {left:640px;}
+     100% {left:650px;}
+   }
+
+/* form */
+   #title {
+      color: rgba(255, 255, 255, 0.86);
+      text-shadow: -1.5px 0 #6C51E6, 1.5px 0 #6C51E6, 0 -1.5px #6C51E6, 0 1.5px #6C51E6;
+      font-weight: bold;
+      font-size: 60px;
+      font-family: 'Righteous', cursive;
+   }
+
+   .wrapper {
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      position: fixed;    
+      top: 5%;
+      z-index: 1;
+      overflow-y:auto;
+   }
+
+   input {
+      background: #ffcccc;
+      padding: 5px;
+      margin: 15px;
+      font-family: 'Raleway', sans-serif;
+      transition-duration: 2s;
+   }
+
+   input:hover {
+      background: #ffffcc;
+   }
+
+   #inputBox {
+      visibility: hidden;
+      display: inline-block;
+      padding: 30px;
+      margin: 10px;
+      margin-top: 10%;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 4px 8px 0 #07173c, 0 6px 20px 0 #07173c;
+   /* CSS3 Transitions */
+      transition-duration: 500ms;
+      transition-property: box-shadow;
+      transition-timing-function: ease-in-out;
+   }
+
+   /* CSS3 Transform */
+   #inputBox:hover {
+      box-shadow: 0px 0px 15px 5px #ffffcc;
+   }
+
+/* display */
+   #cardCase {
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      position: fixed;    
+      top: 40%;
+      z-index: 3;
+      visibility: hidden;
+      overflow-y:auto;
+      overflow-x:hidden;
+   }
+
+   .card {
+      height: 150px;
+      width: 20%;
+      max-width: 200px;
+      min-width: 100px;
+      text-align: center;
+      display: inline-block;
+      margin: 5px;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      font-size: 20px;
+      transition: height 1s, width 1s;
+      border-radius: 25px;
+   }
+
+   /* animation */
+   .card:hover {
+      height: 175px;
+      width: 175px;
+      animation: shake .01s;
+      animation-duration: 1000ms;
+      animation-iteration-count: 1;
+   }
+
+   /* animation */
+   @keyframes shake {
+     0%   { transform: translate(-1px,  1px) rotate( 0deg); }
+     10%  { transform: translate(-3px, -1px) rotate(-1deg); }
+     20%  { transform: translate(-5px,  0px) rotate( 1deg); }
+     30%  { transform: translate( 3px,  2px) rotate( 0deg); }
+     40%  { transform: translate( 1px, -2px) rotate(-1deg); }
+     50%  { transform: translate(-1px, -1px) rotate( 1deg); }
+     60%  { transform: translate(-3px,  1px) rotate( 0deg); }
+     70%  { transform: translate(-5px,  0px) rotate(-1deg); }
+     80%  { transform: translate( 3px,  2px) rotate( 0deg); }
+     90%  { transform: translate( 5px, -2px) rotate( 1deg); }
+     100% { transform: translate(-1px,  1px) rotate(-1deg); }
+   }
+
+
+/* elements */
+   body {
+      background-image: linear-gradient(to bottom right, #7096EF, #545BE6, #6C51E6);
+      font-family: 'Raleway', sans-serif;
+   }
+
+   button {
+      font-family: 'Raleway', sans-serif;
+   }
+
+   #notMe {
+      background-color: Transparent;
+      /*background-repeat: no-repeat;*/
+      border: white;
+      /*overflow: hidden;*/
+      /*padding: 0;*/
+   }
